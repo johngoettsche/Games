@@ -1,0 +1,599 @@
+version	U12.1.00
+uid	organizations.u1-1436084550-0
+record	organizations__organization__state,4
+	0,__s
+	1,__m
+	2,oname
+	3,distOrgs
+record	organizations__organization__methods,3
+	0,newDistOrg
+	1,addDistOrg
+	2,initially
+record	organizations__districtOrganization__state,4
+	0,__s
+	1,__m
+	2,dist
+	3,press
+record	organizations__districtOrganization__methods,1
+	0,initially
+impl	local
+global	14
+	0,000005,organizations__organization_newDistOrg,2
+	1,000005,organizations__organization_addDistOrg,3
+	2,000005,organizations__organization_initially,2
+	3,000011,organizations__organization__state,4
+	4,000011,organizations__organization__methods,3
+	5,000001,organizations__organization__oprec,0
+	6,000005,organizations__organization,1
+	7,000005,organizations__organizationinitialize,0
+	8,000005,organizations__districtOrganization_initially,2
+	9,000011,organizations__districtOrganization__state,4
+	10,000011,organizations__districtOrganization__methods,1
+	11,000001,organizations__districtOrganization__oprec,0
+	12,000005,organizations__districtOrganization,1
+	13,000005,organizations__districtOrganizationinitialize,0
+
+proc organizations__organization_newDistOrg
+	local	0,001000,self
+	local	1,001000,d
+	local	2,000000,districtOrg
+	local	3,000000,organizations__districtOrganization
+	local	4,000000,put
+	declend
+	filen	organizations.icn
+	line	4
+	colm	11
+	synt	any
+	mark	L1
+	pnull
+	var	2
+	var	3
+	var	1
+	line	5
+	colm	67
+	synt	any
+	invoke	1
+	line	5
+	colm	29
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	var	4
+	pnull
+	var	0
+	line	6
+	colm	25
+	synt	any
+	field	distOrgs
+	var	2
+	line	6
+	colm	20
+	synt	any
+	invoke	2
+	unmark
+lab L2
+	pnull
+	line	7
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__organization_addDistOrg
+	local	0,001000,self
+	local	1,001000,dist
+	local	2,001000,change
+	local	3,000000,districtOrg
+	declend
+	line	9
+	colm	11
+	synt	any
+	mark	L1
+	line	10
+	colm	17
+	synt	every
+	mark0
+	pnull
+	var	3
+	pnull
+	pnull
+	var	0
+	line	10
+	colm	43
+	synt	any
+	field	distOrgs
+	line	10
+	colm	38
+	synt	any
+	bang
+	line	10
+	colm	35
+	synt	any
+	asgn
+	pop
+	mark0
+	line	11
+	colm	25
+	synt	if
+	mark0
+	pnull
+	pnull
+	var	1
+	line	11
+	colm	32
+	synt	any
+	field	dname
+	pnull
+	pnull
+	var	3
+	line	11
+	colm	53
+	synt	any
+	field	dist
+	line	11
+	colm	58
+	synt	any
+	field	dname
+	line	11
+	colm	39
+	synt	any
+	lexeq
+	unmark
+	pnull
+	pnull
+	var	3
+	line	11
+	colm	81
+	synt	any
+	field	press
+	dup
+	var	2
+	line	11
+	colm	88
+	synt	any
+	plus
+	asgn
+	line	11
+	colm	25
+	synt	endif
+	unmark
+lab L2
+	efail
+lab L3
+	line	10
+	colm	17
+	synt	endevery
+	unmark
+lab L1
+	pnull
+	line	12
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__organization_initially
+	local	0,001000,self
+	local	1,001000,o
+	declend
+	line	14
+	colm	11
+	synt	any
+	mark	L1
+	pnull
+	pnull
+	var	0
+	line	15
+	colm	13
+	synt	any
+	field	distOrgs
+	pnull
+	line	15
+	colm	24
+	synt	any
+	llist	0
+	line	15
+	colm	22
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	pnull
+	var	0
+	line	16
+	colm	13
+	synt	any
+	field	oname
+	var	1
+	line	16
+	colm	19
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	mark	L4
+	pnull
+	line	17
+	colm	7
+	synt	any
+	pret
+lab L4
+	synt	any
+	pfail
+	unmark
+lab L3
+	pnull
+	line	18
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__organization
+	local	0,001000,o
+	local	1,000020,self
+	local	2,000020,clone
+	local	3,000000,organizations__organization__oprec
+	local	4,000000,organizations__organizationinitialize
+	local	5,000000,organizations__organization__state
+	declend
+	line	22
+	colm	11
+	synt	any
+lab L1
+	init	L3
+	mark	L2
+	line	25
+	colm	3
+	synt	if
+	mark0
+	pnull
+	var	3
+	line	25
+	colm	6
+	synt	any
+	null
+	unmark
+	var	4
+	line	25
+	colm	84
+	synt	any
+	invoke	0
+	line	25
+	colm	3
+	synt	endif
+	unmark
+lab L2
+	einit	L1
+lab L3
+	mark	L4
+	pnull
+	var	1
+	var	5
+	line	27
+	colm	46
+	synt	any
+	keywd	null
+	var	3
+	line	27
+	colm	45
+	synt	any
+	invoke	2
+	line	27
+	colm	8
+	synt	any
+	asgn
+	unmark
+lab L4
+	mark	L5
+	pnull
+	pnull
+	var	1
+	line	28
+	colm	7
+	synt	any
+	field	__s
+	var	1
+	line	28
+	colm	12
+	synt	any
+	asgn
+	unmark
+lab L5
+	mark	L6
+	mark	L7
+	pnull
+	pnull
+	var	1
+	line	29
+	colm	7
+	synt	any
+	field	__m
+	line	29
+	colm	11
+	synt	any
+	field	initially
+	var	1
+	var	0
+	line	29
+	colm	21
+	synt	any
+	invoke	2
+	line	29
+	colm	30
+	synt	any
+	esusp
+	goto	L8
+lab L7
+	line	29
+	colm	32
+	synt	any
+	pfail
+lab L8
+	unmark
+lab L6
+	mark	L9
+	mark	L10
+	var	1
+	line	30
+	colm	3
+	synt	any
+	pret
+lab L10
+	synt	any
+	pfail
+	unmark
+lab L9
+	pnull
+	line	31
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__organizationinitialize
+	local	0,000000,organizations__organization__oprec
+	local	1,000000,organizations__organization__methods
+	local	2,000000,organizations__organization_newDistOrg
+	local	3,000000,organizations__organization_addDistOrg
+	local	4,000000,organizations__organization_initially
+	declend
+	line	33
+	colm	11
+	synt	any
+lab L1
+	init	L3
+	mark	L2
+	pnull
+	var	0
+	var	1
+	var	2
+	var	3
+	var	4
+	line	34
+	colm	85
+	synt	any
+	invoke	3
+	line	34
+	colm	46
+	synt	any
+	asgn
+	unmark
+lab L2
+	einit	L1
+lab L3
+	line	35
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__districtOrganization_initially
+	local	0,001000,self
+	local	1,001000,d
+	con	0,002000,1,0
+	declend
+	line	21
+	colm	11
+	synt	any
+	mark	L1
+	pnull
+	pnull
+	var	0
+	line	22
+	colm	13
+	synt	any
+	field	dist
+	var	1
+	line	22
+	colm	18
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	pnull
+	var	0
+	line	23
+	colm	13
+	synt	any
+	field	press
+	int	0
+	line	23
+	colm	19
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	mark	L4
+	pnull
+	line	24
+	colm	7
+	synt	any
+	pret
+lab L4
+	synt	any
+	pfail
+	unmark
+lab L3
+	pnull
+	line	25
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__districtOrganization
+	local	0,001000,d
+	local	1,000020,self
+	local	2,000020,clone
+	local	3,000000,organizations__districtOrganization__oprec
+	local	4,000000,organizations__districtOrganizationinitialize
+	local	5,000000,organizations__districtOrganization__state
+	declend
+	line	29
+	colm	11
+	synt	any
+lab L1
+	init	L3
+	mark	L2
+	line	32
+	colm	3
+	synt	if
+	mark0
+	pnull
+	var	3
+	line	32
+	colm	6
+	synt	any
+	null
+	unmark
+	var	4
+	line	32
+	colm	100
+	synt	any
+	invoke	0
+	line	32
+	colm	3
+	synt	endif
+	unmark
+lab L2
+	einit	L1
+lab L3
+	mark	L4
+	pnull
+	var	1
+	var	5
+	line	34
+	colm	54
+	synt	any
+	keywd	null
+	var	3
+	line	34
+	colm	53
+	synt	any
+	invoke	2
+	line	34
+	colm	8
+	synt	any
+	asgn
+	unmark
+lab L4
+	mark	L5
+	pnull
+	pnull
+	var	1
+	line	35
+	colm	7
+	synt	any
+	field	__s
+	var	1
+	line	35
+	colm	12
+	synt	any
+	asgn
+	unmark
+lab L5
+	mark	L6
+	mark	L7
+	pnull
+	pnull
+	var	1
+	line	36
+	colm	7
+	synt	any
+	field	__m
+	line	36
+	colm	11
+	synt	any
+	field	initially
+	var	1
+	var	0
+	line	36
+	colm	21
+	synt	any
+	invoke	2
+	line	36
+	colm	30
+	synt	any
+	esusp
+	goto	L8
+lab L7
+	line	36
+	colm	32
+	synt	any
+	pfail
+lab L8
+	unmark
+lab L6
+	mark	L9
+	mark	L10
+	var	1
+	line	37
+	colm	3
+	synt	any
+	pret
+lab L10
+	synt	any
+	pfail
+	unmark
+lab L9
+	pnull
+	line	38
+	colm	1
+	synt	any
+	pfail
+	end
+proc organizations__districtOrganizationinitialize
+	local	0,000000,organizations__districtOrganization__oprec
+	local	1,000000,organizations__districtOrganization__methods
+	local	2,000000,organizations__districtOrganization_initially
+	declend
+	line	40
+	colm	11
+	synt	any
+lab L1
+	init	L3
+	mark	L2
+	pnull
+	var	0
+	var	1
+	var	2
+	line	41
+	colm	101
+	synt	any
+	invoke	1
+	line	41
+	colm	54
+	synt	any
+	asgn
+	unmark
+lab L2
+	einit	L1
+lab L3
+	line	42
+	colm	1
+	synt	any
+	pfail
+	end

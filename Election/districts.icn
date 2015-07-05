@@ -1,0 +1,9 @@
+package districts
+
+class district(dname, population, undecided)
+
+initially(dn)
+	dname := dn
+	population := 100000
+	undecided := population
+end

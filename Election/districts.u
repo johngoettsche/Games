@@ -1,0 +1,249 @@
+version	U12.1.00
+uid	districts.u1-1436082117-0
+record	districts__district__state,5
+	0,__s
+	1,__m
+	2,dname
+	3,population
+	4,undecided
+record	districts__district__methods,1
+	0,initially
+impl	local
+global	6
+	0,000005,districts__district_initially,2
+	1,000011,districts__district__state,5
+	2,000011,districts__district__methods,1
+	3,000001,districts__district__oprec,0
+	4,000005,districts__district,1
+	5,000005,districts__districtinitialize,0
+
+proc districts__district_initially
+	local	0,001000,self
+	local	1,001000,dn
+	con	0,002000,6,100000
+	declend
+	filen	districts.icn
+	line	5
+	colm	11
+	synt	any
+	mark	L1
+	pnull
+	pnull
+	var	0
+	line	6
+	colm	13
+	synt	any
+	field	dname
+	var	1
+	line	6
+	colm	19
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	pnull
+	var	0
+	line	7
+	colm	13
+	synt	any
+	field	population
+	int	0
+	line	7
+	colm	24
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	pnull
+	pnull
+	var	0
+	line	8
+	colm	13
+	synt	any
+	field	undecided
+	pnull
+	var	0
+	line	8
+	colm	29
+	synt	any
+	field	population
+	line	8
+	colm	23
+	synt	any
+	asgn
+	unmark
+lab L3
+	mark	L4
+	mark	L5
+	pnull
+	line	9
+	colm	7
+	synt	any
+	pret
+lab L5
+	synt	any
+	pfail
+	unmark
+lab L4
+	pnull
+	line	10
+	colm	1
+	synt	any
+	pfail
+	end
+proc districts__district
+	local	0,001000,dn
+	local	1,000020,self
+	local	2,000020,clone
+	local	3,000000,districts__district__oprec
+	local	4,000000,districts__districtinitialize
+	local	5,000000,districts__district__state
+	declend
+	line	14
+	colm	11
+	synt	any
+lab L1
+	init	L3
+	mark	L2
+	line	17
+	colm	3
+	synt	if
+	mark0
+	pnull
+	var	3
+	line	17
+	colm	6
+	synt	any
+	null
+	unmark
+	var	4
+	line	17
+	colm	68
+	synt	any
+	invoke	0
+	line	17
+	colm	3
+	synt	endif
+	unmark
+lab L2
+	einit	L1
+lab L3
+	mark	L4
+	pnull
+	var	1
+	var	5
+	line	19
+	colm	38
+	synt	any
+	keywd	null
+	var	3
+	line	19
+	colm	37
+	synt	any
+	invoke	2
+	line	19
+	colm	8
+	synt	any
+	asgn
+	unmark
+lab L4
+	mark	L5
+	pnull
+	pnull
+	var	1
+	line	20
+	colm	7
+	synt	any
+	field	__s
+	var	1
+	line	20
+	colm	12
+	synt	any
+	asgn
+	unmark
+lab L5
+	mark	L6
+	mark	L7
+	pnull
+	pnull
+	var	1
+	line	21
+	colm	7
+	synt	any
+	field	__m
+	line	21
+	colm	11
+	synt	any
+	field	initially
+	var	1
+	var	0
+	line	21
+	colm	21
+	synt	any
+	invoke	2
+	line	21
+	colm	31
+	synt	any
+	esusp
+	goto	L8
+lab L7
+	line	21
+	colm	33
+	synt	any
+	pfail
+lab L8
+	unmark
+lab L6
+	mark	L9
+	mark	L10
+	var	1
+	line	22
+	colm	3
+	synt	any
+	pret
+lab L10
+	synt	any
+	pfail
+	unmark
+lab L9
+	pnull
+	line	23
+	colm	1
+	synt	any
+	pfail
+	end
+proc districts__districtinitialize
+	local	0,000000,districts__district__oprec
+	local	1,000000,districts__district__methods
+	local	2,000000,districts__district_initially
+	declend
+	line	25
+	colm	11
+	synt	any
+lab L1
+	init	L3
+	mark	L2
+	pnull
+	var	0
+	var	1
+	var	2
+	line	26
+	colm	69
+	synt	any
+	invoke	1
+	line	26
+	colm	38
+	synt	any
+	asgn
+	unmark
+lab L2
+	einit	L1
+lab L3
+	line	27
+	colm	1
+	synt	any
+	pfail
+	end

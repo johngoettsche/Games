@@ -1,0 +1,24 @@
+package organizations
+
+class organization(oname, distOrgs)
+	method newDistOrg(d)
+		districtOrg := districtOrganization(d)
+		put(distOrgs, districtOrg)
+	end
+	
+	method addDistOrg(dist, change)
+		every districtOrg := !distOrgs do
+			if dist.dname == districtOrg.dist.dname then districtOrg.press +:= change
+	end
+
+initially(o)
+	distOrgs := []
+	oname := o
+end
+
+class districtOrganization(dist, base, press)
+
+initially(d)
+	dist := d
+	press := 0
+end
