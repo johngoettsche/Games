@@ -1,0 +1,10 @@
+package DAO
+
+procedure readFile(filename)
+	local
+		file,
+		line
+		
+	file := open(filename, "r")
+	every line := file do suspend line
+end

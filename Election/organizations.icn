@@ -1,14 +1,27 @@
 package organizations
 
+import DAO
+
+global
+	organizationTypes := []
+	
+procedure initOrganizations()
+	every consultant := readFile("consultantTypes.dat") do 
+		put(organizationType, consultant)
+end
+
 class organization(oname, distOrgs)
 	method newDistOrg(d)
 		districtOrg := districtOrganization(d)
 		put(distOrgs, districtOrg)
 	end
 	
-	method addDistOrg(dist, change)
+	method setDistOrg(dist, consult, level)
 		every districtOrg := !distOrgs do
-			if dist.dname == districtOrg.dist.dname then districtOrg.press +:= change
+			every oType := !districtOrg.orgTypes do
+				if dist.dname == districtOrg.dist.dname &
+					consult == oType.consultant then 
+					districtOrg.press := level
 	end
 
 initially(o)
@@ -16,9 +29,18 @@ initially(o)
 	oname := o
 end
 
-class districtOrganization(dist, base, press)
+class districtOrganization(dist, orgTypes)
 
 initially(d)
+	orgTypes := []
 	dist := d
-	press := 0
+	every oType := !organizationTypes do 
+		put(orgTypes, organizationType(oType))
+end
+
+class organizationType(consultant, level)
+
+initially(cons)
+	consultant := cons
+	level := 0
 end

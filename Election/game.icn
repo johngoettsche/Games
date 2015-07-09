@@ -1,7 +1,10 @@
 import districts
 import organizations
+import DAO
 
 procedure main()
+	initOrganizations()
+	
 	districtName := create("District " || seq())
 	repDistricts := []
 	every 1 to 10 do {
@@ -14,7 +17,7 @@ procedure main()
 	d := ?repDistricts
 	org.newDistOrg(d)
 	write(d.dname)
-	org.addDistOrg(d, 2)
+	org.setDistOrg(d, 2)
 	every o := !org.distOrgs do {
 		#write(image(o)) 
 		write(o.dist.dname || "\t" || o.press)
